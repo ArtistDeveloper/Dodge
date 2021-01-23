@@ -26,30 +26,13 @@ public class PlayerController : MonoBehaviour
         // ex) 우측입력 예시 xInput(+1.0) * speed(8f);
         Vector3 newVelocity = new Vector3(xSpeed, 0f, zSpeed); 
         playerRigidbody.velocity = newVelocity;
-
-        // if (Input.GetKey(KeyCode.UpArrow) == true)
-        // {
-        //     playerRigidbody.AddForce(0f, 0f, speed); //x, y, z
-        // }
-
-        // if (Input.GetKey(KeyCode.DownArrow) == true) 
-        // {
-        //     playerRigidbody.AddForce(0f, 0f, -speed);
-        // }
-
-        // if (Input.GetKey(KeyCode.RightArrow) == true)
-        // {
-        //     playerRigidbody.AddForce(speed, 0f, 0f);
-        // }
-
-        // if (Input.GetKey(KeyCode.LeftArrow) == true)
-        // {
-        //     playerRigidbody.AddForce(-speed, 0f, 0f);
-        // }
     }
 
     public void Die() 
     {
         gameObject.SetActive(false);
+
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        gameManager.EndGame();
     }
 }
